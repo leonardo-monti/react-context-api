@@ -11,6 +11,4 @@ export function BudgetProvider({ children }) {
             {children}
         </BudgetContext.Provider>
     )
-
-
 }

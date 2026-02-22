@@ -1,6 +1,16 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { BudgetContext } from "../contexts/BudgetContext"
+
 
 export default function Navbar() {
+
+    const { budgetMode, setBudgetMode } = useContext(BudgetContext)
+
+    const handleToggle = () => {
+        setBudgetMode((prev) => !prev)
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -19,6 +29,9 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/prodotti">Prodotti</Link>
                         </li>
+                        <button className="btn btn-outline-dark" onClick={handleToggle}>
+                            {budgetMode ? "Disattiva Modalità Budget" : "Attiva Modalità Budget"}
+                        </button>
                     </ul>
                 </div>
             </div >
